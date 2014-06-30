@@ -6,8 +6,15 @@ JavaScript JSON viewer plugin.  Requires jQuery.
 
 TODO
 
+## Development
+
+```bash
+bundle
+bundle exec compass watch
+open index.html
+```
+
 ## Inspiration
 
 * https://github.com/bhollis/jsonview
-* https://github.com/josdejong/jsoneditoronline
-* http://abe.is/
+* https://github.com/josdejong/jsoneditor
