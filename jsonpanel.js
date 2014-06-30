@@ -91,7 +91,7 @@
 
 
 
-  $.fn.jsonPanes = function(data){
+  $.fn.jsonPanel = function(data){
     var panel = new Panel(data);
     panel.render();
     $(this).html(panel.$el);

@@ -1,19 +1,19 @@
 /*
 Syntax error: File to import not found or unreadable: compass/css3/box-sizing.
               Load path: /Users/afeld/dev/jsonpanel
-        on line 3 of ./jsonpanes.scss
+        on line 3 of ./jsonpanel.scss
 
-1: // base jsonpanes styles
+1: // base jsonpanel styles
 2: 
 3: @import "compass/css3/box-sizing";
 4: @import "compass/css3/transition";
 5: 
 6: 
-7: .jsonpanes {
+7: .jsonpanel {
 8:   @include box-sizing(border-box);
 
 Backtrace:
-./jsonpanes.scss:3
+./jsonpanel.scss:3
 /opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
 /opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:45:in `import'
 /opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -56,4 +56,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: compass/css3/box-sizing.\A               Load path: /Users/afeld/dev/jsonpanel\A         on line 3 of ./jsonpanes.scss\A \A 1: // base jsonpanes styles\A 2: \A 3: @import \"compass/css3/box-sizing\";\A 4: @import \"compass/css3/transition\";\A 5: \A 6: \A 7: .jsonpanes {\A 8:   @include box-sizing(border-box);"; }
+  content: "Syntax error: File to import not found or unreadable: compass/css3/box-sizing.\A               Load path: /Users/afeld/dev/jsonpanel\A         on line 3 of ./jsonpanel.scss\A \A 1: // base jsonpanel styles\A 2: \A 3: @import \"compass/css3/box-sizing\";\A 4: @import \"compass/css3/transition\";\A 5: \A 6: \A 7: .jsonpanel {\A 8:   @include box-sizing(border-box);"; }

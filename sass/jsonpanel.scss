@@ -1,10 +1,10 @@
-// base jsonpanes styles
+// base jsonpanel styles
 
 @import "compass/css3/box-sizing";
 @import "compass/css3/transition";
 
 
-.jsonpanes {
+.jsonpanel {
   @include box-sizing(border-box);
   overflow-x: scroll;
   white-space: nowrap;
