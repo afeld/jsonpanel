@@ -1,18 +1,10 @@
-# Aidan Feldman API
+# JSONPanes
 
-## To run locally
+JavaScript JSON viewer plugin.  Requires jQuery.
 
-```bash
-bundle install
-bundle exec rackup
-open http://localhost:9292
-```
+## Usage
 
-## To make your own
-
-1. Fork that sh\*t
-2. Modify `views/index.json` and `views/index.html.erb`
-3. Push up to Heroku, or wherever
+TODO
 
 ## Inspiration
 

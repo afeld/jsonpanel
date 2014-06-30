@@ -2,25 +2,15 @@
 <html>
   <head>
     <title>Aidan Feldman API</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/application.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/demo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="javascripts/autolinker.js"></script>
-    <script src="javascripts/jsonpanes.js"></script>
+    <script src="jsonpanes.js"></script>
     <script>
       $(function(){
-        $('.jsonpanes').jsonPanes(<%= PROFILE_STR %>);
-        $('.profile').remove();
+        $('.jsonpanes').jsonPanes({
+          sample: "json"
+        });
       });
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-9928735-10']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
     </script>
   </head>
   <body>
@@ -34,11 +24,8 @@
         <a href="index.json">View raw</a>
       </li>
       <li>
-        <a href="https://github.com/afeld/api.afeld.me">Fork me</a>
+        <a href="https://github.com/afeld/jsonpanes">Fork me</a>
       </li>
     </ul>
-    <div class="profile">
-      <%= to_dl(PROFILE_HSH) %>
-    </div>
   </body>
 </html>

@@ -54,7 +54,7 @@
 
       $key = $('<span class="key">' + key + '</span>');
       valType = typeof val;
-      valMarkup = Autolinker.link( valStr );
+      valMarkup = valStr;
     }
 
     $rowContainer.append($key, ': <span class="val ' + valType + '">' + valMarkup + '</span>');

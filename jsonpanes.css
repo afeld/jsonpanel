@@ -1,0 +1,59 @@
+/*
+Syntax error: File to import not found or unreadable: compass/css3/box-sizing.
+              Load path: /Users/afeld/dev/jsonpanel
+        on line 3 of ./jsonpanes.scss
+
+1: // base jsonpanes styles
+2: 
+3: @import "compass/css3/box-sizing";
+4: @import "compass/css3/transition";
+5: 
+6: 
+7: .jsonpanes {
+8:   @include box-sizing(border-box);
+
+Backtrace:
+./jsonpanes.scss:3
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:45:in `import'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/stack.rb:79:in `block in with_base'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/stack.rb:121:in `with_frame'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/stack.rb:79:in `with_base'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/tree/root_node.rb:20:in `render'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/engine.rb:274:in `render'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:378:in `update_stylesheet'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:186:in `each'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:221:in `watch'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/plugin.rb:108:in `method_missing'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/exec.rb:509:in `watch_or_update'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/exec.rb:346:in `process_result'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/exec.rb:43:in `parse'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/lib/sass/exec.rb:22:in `parse!'
+/opt/rubies/2.1.2-github1/lib/ruby/gems/2.1.0/gems/sass-3.3.9/bin/sass:13:in `<top (required)>'
+/opt/boxen/rbenv/versions/2.1.2-github/bin/sass:23:in `load'
+/opt/boxen/rbenv/versions/2.1.2-github/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: compass/css3/box-sizing.\A               Load path: /Users/afeld/dev/jsonpanel\A         on line 3 of ./jsonpanes.scss\A \A 1: // base jsonpanes styles\A 2: \A 3: @import \"compass/css3/box-sizing\";\A 4: @import \"compass/css3/transition\";\A 5: \A 6: \A 7: .jsonpanes {\A 8:   @include box-sizing(border-box);"; }
