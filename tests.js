@@ -12,7 +12,7 @@ $(function(){
         foo: 'bar'
       }
     });
-    assert.equal($fixture.find('li.selected').length, 0);
+    assert.equal($fixture.find('li.expanded').length, 0);
   });
 
   QUnit.test("expands when clicked", function(assert){
@@ -22,6 +22,6 @@ $(function(){
       }
     });
     $fixture.find('.expandable').click();
-    assert.equal($fixture.find('li.selected').length, 1);
+    assert.equal($fixture.find('li.expanded').length, 1);
   });
 });

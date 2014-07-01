@@ -64,15 +64,15 @@
   // private
   Panel.prototype.onKeyClicked = function(e){
     var $expandable = $(e.currentTarget),
-      $selected = $expandable.closest('li');
+      $expanded = $expandable.closest('li');
 
-    if ($selected.hasClass('selected')){
+    if ($expanded.hasClass('expanded')){
       // collapse
-      $selected.children('.panel').remove();
-      $selected.removeClass('selected');
+      $expanded.children('.panel').remove();
+      $expanded.removeClass('expanded');
     } else {
       var nestedData = $expandable.data('obj');
-      this.addChildPanel($selected, nestedData);
+      this.addChildPanel($expanded, nestedData);
     }
 
     e.stopPropagation();
@@ -80,13 +80,13 @@
   };
 
   // private
-  Panel.prototype.addChildPanel = function($selected, data){
+  Panel.prototype.addChildPanel = function($expanded, data){
     // open new panel
     var childPanel = new Panel(data);
     childPanel.render();
-    $selected.append(childPanel.$el);
+    $expanded.append(childPanel.$el);
 
-    $selected.addClass('selected');
+    $expanded.addClass('expanded');
   };
 
 

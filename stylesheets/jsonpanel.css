@@ -84,19 +84,19 @@
   margin-right: 0.5em;
 }
 /* line 95, ../sass/jsonpanel.scss */
-.jsonpanel .selected {
+.jsonpanel .expanded {
   position: relative;
 }
 /* line 100, ../sass/jsonpanel.scss */
-.jsonpanel .selected > .expandable .key:before {
+.jsonpanel .expanded > .expandable .key:before {
   content: "-";
 }
 /* line 104, ../sass/jsonpanel.scss */
-.jsonpanel .selected > .expandable .val {
+.jsonpanel .expanded > .expandable .val {
   opacity: 0;
 }
 /* line 110, ../sass/jsonpanel.scss */
-.jsonpanel .selected > .panel {
+.jsonpanel .expanded > .panel {
   margin-left: 2em;
 }
 /* line 115, ../sass/jsonpanel.scss */
