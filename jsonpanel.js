@@ -74,7 +74,6 @@
     this.$el.removeClass('expanded');
   };
 
-  // private
   ExpandablePair.prototype.onKeyClick = function(e){
     if (this.isExpanded()){
       this.collapse();
@@ -105,16 +104,21 @@
     this.data = data;
   };
 
-  Panel.prototype.render = function(){
-    var data = this.data;
-
-    if ($.isArray(data)){
+  Panel.prototype.createListTag = function(){
+    var $list;
+    if ($.isArray(this.data)){
       $list = $('<ol class="list" start="0">');
     } else {
       $list = $('<ul class="list">');
     }
+    return $list;
+  };
 
-    var self = this;
+  Panel.prototype.render = function(){
+    var data = this.data,
+      $list = this.createListTag(),
+      self = this;
+
     $.each(data, function(key, val){
       var $li = self.createListItem(key, val);
       $list.append($li);
@@ -127,7 +131,6 @@
     return this;
   };
 
-  // private
   Panel.prototype.createListItem = function(key, val){
     var pair = Pair.create(key, val);
     pair.render();
