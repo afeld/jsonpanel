@@ -1,12 +1,16 @@
 $(function(){
   var $fixture = $('#qunit-fixture');
 
+
   QUnit.test("returns a Panel instance", function(assert){
     var panel = $fixture.jsonpanel({});
     assert.strictEqual(typeof panel.render, 'function');
   });
 
-  QUnit.test("object starts off collapsed", function(assert){
+
+  QUnit.module("nested object");
+
+  QUnit.test("starts off collapsed", function(assert){
     var panel = $fixture.jsonpanel({
       obj: {
         foo: 'bar'
@@ -15,14 +19,7 @@ $(function(){
     assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 
-  QUnit.test("array starts off collapsed", function(assert){
-    var panel = $fixture.jsonpanel({
-      ary: ['foo']
-    });
-    assert.strictEqual($fixture.find('li.expanded').length, 0);
-  });
-
-  QUnit.test("adds a .expanded class when object is expanded", function(assert){
+  QUnit.test("adds a .expanded class when expanded", function(assert){
     var panel = $fixture.jsonpanel({
       obj: {
         foo: 'bar'
@@ -32,15 +29,7 @@ $(function(){
     assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 
-  QUnit.test("adds a .expanded class when array is expanded", function(assert){
-    var panel = $fixture.jsonpanel({
-      ary: ['foo']
-    });
-    $fixture.find('.expandable').click();
-    assert.strictEqual($fixture.find('li.expanded').length, 1);
-  });
-
-  QUnit.test("removes .expanded class when object is collapsed", function(assert){
+  QUnit.test("removes .expanded class when collapsed", function(assert){
     var panel = $fixture.jsonpanel({
       obj: {
         foo: 'bar'
@@ -50,7 +39,25 @@ $(function(){
     assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 
-  QUnit.test("removes .expanded class when array is collapsed", function(assert){
+
+  QUnit.module("nested array");
+
+  QUnit.test("starts off collapsed", function(assert){
+    var panel = $fixture.jsonpanel({
+      ary: ['foo']
+    });
+    assert.strictEqual($fixture.find('li.expanded').length, 0);
+  });
+
+  QUnit.test("adds a .expanded class when expanded", function(assert){
+    var panel = $fixture.jsonpanel({
+      ary: ['foo']
+    });
+    $fixture.find('.expandable').click();
+    assert.strictEqual($fixture.find('li.expanded').length, 1);
+  });
+
+  QUnit.test("removes .expanded class when collapsed", function(assert){
     var panel = $fixture.jsonpanel({
       ary: ['foo']
     });
