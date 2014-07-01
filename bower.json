@@ -20,11 +20,13 @@
   ],
   "license": "MIT",
   "ignore": [
-    "sass/demo.scss",
-    "stylesheets/demo.css",
-    "Gemfile",
-    "Gemfile.lock",
-    "index.html",
-    "README.md"
-  ]
+    "/sass/demo.scss",
+    "/Gemfile",
+    "/Gemfile.lock",
+    "/index.html",
+    "/README.md"
+  ],
+  "devDependencies": {
+    "qunit": "~1.14.0"
+  }
 }

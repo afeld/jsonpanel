@@ -95,5 +95,6 @@
     var panel = new Panel(data);
     panel.render();
     $(this).html(panel.$el);
+    return panel;
   };
 })(jQuery);
