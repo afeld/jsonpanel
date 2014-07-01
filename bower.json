@@ -24,7 +24,8 @@
     "/Gemfile",
     "/Gemfile.lock",
     "/index.html",
-    "/README.md"
+    "/README.md",
+    "/tests.js"
   ],
   "devDependencies": {
     "qunit": "~1.14.0",
