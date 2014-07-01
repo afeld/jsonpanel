@@ -1,4 +1,46 @@
 (function($){
+  var Pair = function(key, val){
+    this.key = key;
+    this.val = val;
+  };
+
+  Pair.prototype.render = function(){
+    var $li = $('<li>'),
+      key = this.key,
+      val = this.val,
+      isObj = $.isPlainObject(val),
+      valStr = JSON.stringify(val),
+      $rowContainer, $key, valType, valMarkup;
+
+    if (isObj || $.isArray(val)){
+      // nested data
+      var $expandable = $('<a class="expandable" href="#">');
+      $expandable.data('obj', val);
+      $li.append($expandable);
+      $rowContainer = $expandable;
+
+      $key = $('<span class="key">' + key + '</span>');
+      valType = isObj ? 'object' : 'array';
+
+      // truncate the array/object preview
+      var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
+      valMarkup = valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
+
+    } else {
+      // normal key-value
+      $rowContainer = $li;
+
+      $key = $('<span class="key">' + key + '</span>');
+      valType = typeof val;
+      valMarkup = valStr;
+    }
+
+    $rowContainer.append($key, ': <span class="val ' + valType + '">' + valMarkup + '</span>');
+
+    this.$el = $li;
+  };
+
+
   var Panel = function(data){
     this.data = data;
   };
@@ -29,36 +71,9 @@
 
   // private
   Panel.prototype.createListItem = function(key, val){
-    var $li = $('<li>'),
-      isObj = $.isPlainObject(val),
-      valStr = JSON.stringify(val),
-      $rowContainer, $key, valType, valMarkup;
-
-    if (isObj || $.isArray(val)){
-      // nested data
-      var $expandable = $('<a class="expandable" href="#">');
-      $expandable.data('obj', val);
-      $li.append($expandable);
-      $rowContainer = $expandable;
-
-      $key = $('<span class="key">' + key + '</span>');
-      valType = isObj ? 'object' : 'array';
-
-      // truncate the array/object preview
-      var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
-      valMarkup = valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
-
-    } else {
-      // normal key-value
-      $rowContainer = $li;
-
-      $key = $('<span class="key">' + key + '</span>');
-      valType = typeof val;
-      valMarkup = valStr;
-    }
-
-    $rowContainer.append($key, ': <span class="val ' + valType + '">' + valMarkup + '</span>');
-    return $li;
+    var pair = new Pair(key, val);
+    pair.render();
+    return pair.$el;
   };
 
   // private
