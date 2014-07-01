@@ -22,7 +22,7 @@ $(function(){
     assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 
-  QUnit.test("adds a .expanded class when object is clicked", function(assert){
+  QUnit.test("adds a .expanded class when object is expanded", function(assert){
     var panel = $fixture.jsonpanel({
       obj: {
         foo: 'bar'
@@ -32,11 +32,29 @@ $(function(){
     assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 
-  QUnit.test("adds a .expanded class when array is clicked", function(assert){
+  QUnit.test("adds a .expanded class when array is expanded", function(assert){
     var panel = $fixture.jsonpanel({
       ary: ['foo']
     });
     $fixture.find('.expandable').click();
     assert.strictEqual($fixture.find('li.expanded').length, 1);
+  });
+
+  QUnit.test("removes .expanded class when object is collapsed", function(assert){
+    var panel = $fixture.jsonpanel({
+      obj: {
+        foo: 'bar'
+      }
+    });
+    $fixture.find('.expandable').click().click();
+    assert.strictEqual($fixture.find('li.expanded').length, 0);
+  });
+
+  QUnit.test("removes .expanded class when array is collapsed", function(assert){
+    var panel = $fixture.jsonpanel({
+      ary: ['foo']
+    });
+    $fixture.find('.expandable').click().click();
+    assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 });
