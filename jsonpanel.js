@@ -4,23 +4,36 @@
     this.val = val;
   };
 
+  Pair.prototype.valIsPlainObject = function(){
+    return $.isPlainObject(this.val);
+  };
+
+  Pair.prototype.valIsArray = function(){
+    return $.isArray(this.val);
+  };
+
+  Pair.prototype.isExpandable = function(){
+    return this.valIsPlainObject() || this.valIsArray();
+  };
+
+  Pair.prototype.getKeyMarkup = function(){
+    return '<span class="key">' + this.key + '</span>';
+  };
+
   Pair.prototype.render = function(){
     var $li = $('<li>'),
-      key = this.key,
       val = this.val,
-      isObj = $.isPlainObject(val),
       valStr = JSON.stringify(val),
-      $rowContainer, $key, valType, valMarkup;
+      $rowContainer, valType, valMarkup;
 
-    if (isObj || $.isArray(val)){
+    if (this.isExpandable()){
       // nested data
       var $expandable = $('<a class="expandable" href="#">');
       $expandable.data('obj', val);
       $li.append($expandable);
       $rowContainer = $expandable;
 
-      $key = $('<span class="key">' + key + '</span>');
-      valType = isObj ? 'object' : 'array';
+      valType = this.valIsPlainObject() ? 'object' : 'array';
 
       // truncate the array/object preview
       var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
@@ -29,14 +42,11 @@
     } else {
       // normal key-value
       $rowContainer = $li;
-
-      $key = $('<span class="key">' + key + '</span>');
       valType = typeof val;
       valMarkup = valStr;
     }
 
-    $rowContainer.append($key, ': <span class="val ' + valType + '">' + valMarkup + '</span>');
-
+    $rowContainer.append(this.getKeyMarkup() + ': <span class="val ' + valType + '">' + valMarkup + '</span>');
     this.$el = $li;
   };
 
