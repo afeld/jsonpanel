@@ -30,5 +30,8 @@
   "devDependencies": {
     "qunit": "~1.14.0",
     "blanket": "~1.1.5"
+  },
+  "dependencies": {
+    "jquery": "*"
   }
 }
