@@ -20,11 +20,38 @@
     return '<span class="key">' + this.key + '</span>';
   };
 
-  Pair.prototype.render = function(){
+  Pair.prototype.getValType = function(){
+    var valType;
+    if (this.valIsPlainObject()){
+      valType = 'object';
+    } else if (this.valIsArray()){
+      valType = 'array';
+    } else {
+      valType = typeof this.val;
+    }
+    return valType;
+  };
+
+  Pair.prototype.getValInnerMarkup = function(){
+    var valStr = JSON.stringify(this.val),
+      valMarkup;
+
+    if (this.isExpandable()){
+      // truncate the array/object preview
+      var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
+      valMarkup = valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
+    } else {
+      valMarkup = valStr;
+    }
+
+    return valMarkup;
+  };
+
+  Pair.prototype.createTag = function(){
     var $li = $('<li>'),
       val = this.val,
       valStr = JSON.stringify(val),
-      $rowContainer, valType, valMarkup;
+      $rowContainer;
 
     if (this.isExpandable()){
       // nested data
@@ -32,21 +59,17 @@
       $expandable.data('obj', val);
       $li.append($expandable);
       $rowContainer = $expandable;
-
-      valType = this.valIsPlainObject() ? 'object' : 'array';
-
-      // truncate the array/object preview
-      var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
-      valMarkup = valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
-
     } else {
       // normal key-value
       $rowContainer = $li;
-      valType = typeof val;
-      valMarkup = valStr;
     }
 
-    $rowContainer.append(this.getKeyMarkup() + ': <span class="val ' + valType + '">' + valMarkup + '</span>');
+    $rowContainer.append(this.getKeyMarkup() + ': <span class="val ' + this.getValType() + '">' + this.getValInnerMarkup() + '</span>');
+    return $li;
+  };
+
+  Pair.prototype.render = function(){
+    var $li = this.createTag();
     this.$el = $li;
   };
 

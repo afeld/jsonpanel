@@ -12,9 +12,12 @@
       $(function(){
         $('.jsonpanel').jsonpanel({
           sample: "json",
-          nested: {
-            object: true
-          }
+          objects: {
+            nested: true
+          },
+          arrays: [
+            "also"
+          ]
         });
       });
     </script>
