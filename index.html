@@ -7,9 +7,11 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/qunit/qunit/qunit.js"></script>
     <script src="bower_components/blanket/dist/qunit/blanket.js"></script>
+    <script src="bower_components/Autolinker.js/dist/Autolinker.js"></script>
     <script src="jsonpanel.js" data-cover></script>
     <script src="tests.js"></script>
     <script>
+      // don't show example if checking for code coverage in the tests
       if (!location.search.match(/coverage=true/)){
         $(document).on('ready', function(){
 
@@ -17,7 +19,8 @@
             data: {
               sample: "json",
               objects: {
-                nested: true
+                nested: true,
+                autolinking: 'https://github.com/afeld/jsonpanel'
               },
               arrays: [
                 "also"

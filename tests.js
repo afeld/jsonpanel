@@ -76,4 +76,16 @@ $(function(){
     $fixture.find('.expandable').click().click();
     assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
+
+
+  QUnit.module("autolinking");
+
+  QUnit.test("replaces the URL with a link an anchor tag", function(assert){
+    var panel = $fixture.jsonpanel({
+      data: {
+        foo: 'https://google.com'
+      }
+    });
+    assert.strictEqual($fixture.find('.val.string').html(), '"<a href="https://google.com" target="_blank">google.com</a>"');
+  });
 });

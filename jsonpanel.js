@@ -13,7 +13,8 @@
   };
 
   Pair.prototype.getValInnerMarkup = function(){
-    return JSON.stringify(this.val);
+    var markup = JSON.stringify(this.val);
+    return Autolinker.link(markup);
   };
 
   Pair.prototype.createTagInnerMarkup = function(){
