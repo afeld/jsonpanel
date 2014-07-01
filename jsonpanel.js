@@ -129,19 +129,20 @@
   // private
   Panel.prototype.addChildPanel = function($expanded, data){
     // open new panel
-    var childPanel = new Panel(data);
-    childPanel.render();
-    $expanded.append(childPanel.$el);
-
+    Panel.renderToEl($expanded, data);
     $expanded.addClass('expanded');
   };
+
+  Panel.renderToEl = function($container, data){
+    var panel = new Panel(data);
+    panel.render();
+    $container.append(panel.$el);
+    return panel;
+  }
 
 
 
   $.fn.jsonpanel = function(data){
-    var panel = new Panel(data);
-    panel.render();
-    $(this).html(panel.$el);
-    return panel;
+    return Panel.renderToEl($(this), data);
   };
 })(jQuery);
