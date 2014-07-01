@@ -89,13 +89,11 @@
 
   // factory
   Pair.create = function(key, val){
-    var pair;
     if (typeof val === 'object'){
-      pair = new ExpandablePair(key, val);
+      return new ExpandablePair(key, val);
     } else {
-      pair = new Pair(key, val);
+      return new Pair(key, val);
     }
-    return pair;
   };
 
 
@@ -104,14 +102,16 @@
     this.data = data;
   };
 
+  Panel.prototype.isArray = function(){
+    return $.isArray(this.data);
+  };
+
   Panel.prototype.createListTag = function(){
-    var $list;
-    if ($.isArray(this.data)){
-      $list = $('<ol class="list" start="0">');
+    if (this.isArray()){
+      return $('<ol class="list" start="0">');
     } else {
-      $list = $('<ul class="list">');
+      return $('<ul class="list">');
     }
-    return $list;
   };
 
   Panel.prototype.render = function(){
