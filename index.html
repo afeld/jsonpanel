@@ -14,13 +14,15 @@
         $(document).on('ready', function(){
 
           $('.jsonpanel').jsonpanel({
-            sample: "json",
-            objects: {
-              nested: true
-            },
-            arrays: [
-              "also"
-            ]
+            data: {
+              sample: "json",
+              objects: {
+                nested: true
+              },
+              arrays: [
+                "also"
+              ]
+            }
           });
 
         });

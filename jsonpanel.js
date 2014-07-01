@@ -65,7 +65,9 @@
 
   ExpandablePair.prototype.expand = function(){
     // open new panel
-    Panel.renderToEl(this.$el, this.val);
+    Panel.renderToEl(this.$el, {
+      data: this.val
+    });
     this.$el.addClass('expanded');
   };
 
@@ -98,12 +100,16 @@
 
 
 
-  var Panel = function(data){
-    this.data = data;
+  var Panel = function(options){
+    this.options = options;
+  };
+
+  Panel.prototype.getData = function(){
+    return this.options.data;
   };
 
   Panel.prototype.isArray = function(){
-    return $.isArray(this.data);
+    return $.isArray(this.getData());
   };
 
   Panel.prototype.createListTag = function(){
@@ -115,7 +121,7 @@
   };
 
   Panel.prototype.render = function(){
-    var data = this.data,
+    var data = this.getData(),
       $list = this.createListTag(),
       self = this;
 
@@ -137,8 +143,8 @@
     return pair.$el;
   };
 
-  Panel.renderToEl = function($container, data){
-    var panel = new Panel(data);
+  Panel.renderToEl = function($container, options){
+    var panel = new Panel(options);
     panel.render();
     $container.append(panel.$el);
     return panel;
@@ -146,7 +152,7 @@
 
 
 
-  $.fn.jsonpanel = function(data){
-    return Panel.renderToEl($(this), data);
+  $.fn.jsonpanel = function(options){
+    return Panel.renderToEl($(this), options);
   };
 })(jQuery);
