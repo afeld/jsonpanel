@@ -8,21 +8,27 @@ TODO
 
 ## Development
 
+### Setup
+
 ```bash
 gem install bundler
 bundle
 npm install -g bower
 bower install
-# then
+```
+
+### Compile files
+
+```bash
 bundle exec compass watch
 open index.html
 ```
 
-To run test coverage:
+### Run test coverage
 
 ```bash
-python -m SimpleHTTPServer
-open "http://localhost:8000/?coverage=true/"
+bundle exec rackup
+open "http://localhost:9292/index.html?coverage=true"
 ```
 
 ## Inspiration
