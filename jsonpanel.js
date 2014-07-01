@@ -52,12 +52,40 @@
     var $li = $('<li>'),
       $expandable = $('<a class="expandable" href="#">');
 
-    $expandable.data('obj', this.val);
+    $expandable.on('click', $.proxy(this.onKeyClick, this));
     $li.append($expandable);
 
     $expandable.append(this.createTagInnerMarkup());
     return $li;
   };
+
+  ExpandablePair.prototype.isExpanded = function(){
+    return this.$el.hasClass('expanded');
+  };
+
+  ExpandablePair.prototype.expand = function(){
+    // open new panel
+    Panel.renderToEl(this.$el, this.val);
+    this.$el.addClass('expanded');
+  };
+
+  ExpandablePair.prototype.collapse = function(){
+    this.$el.children('.panel').remove();
+    this.$el.removeClass('expanded');
+  };
+
+  // private
+  ExpandablePair.prototype.onKeyClick = function(e){
+    if (this.isExpanded()){
+      this.collapse();
+    } else {
+      this.expand();
+    }
+
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
 
 
   // factory
@@ -92,8 +120,6 @@
       $list.append($li);
     });
 
-    // handle expand/collapse
-    $list.on('click', '.expandable', $.proxy(this.onKeyClicked, this));
     var $listWrap = $('<div class="panel">');
     $listWrap.html($list);
 
@@ -106,31 +132,6 @@
     var pair = Pair.create(key, val);
     pair.render();
     return pair.$el;
-  };
-
-  // private
-  Panel.prototype.onKeyClicked = function(e){
-    var $expandable = $(e.currentTarget),
-      $expanded = $expandable.closest('li');
-
-    if ($expanded.hasClass('expanded')){
-      // collapse
-      $expanded.children('.panel').remove();
-      $expanded.removeClass('expanded');
-    } else {
-      var nestedData = $expandable.data('obj');
-      this.addChildPanel($expanded, nestedData);
-    }
-
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
-  // private
-  Panel.prototype.addChildPanel = function($expanded, data){
-    // open new panel
-    Panel.renderToEl($expanded, data);
-    $expanded.addClass('expanded');
   };
 
   Panel.renderToEl = function($container, data){
