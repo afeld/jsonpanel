@@ -27,6 +27,7 @@
     "/README.md"
   ],
   "devDependencies": {
-    "qunit": "~1.14.0"
+    "qunit": "~1.14.0",
+    "blanket": "~1.1.5"
   }
 }
