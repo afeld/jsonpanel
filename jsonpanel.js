@@ -4,74 +4,73 @@
     this.val = val;
   };
 
-  Pair.prototype.valIsPlainObject = function(){
-    return $.isPlainObject(this.val);
-  };
-
-  Pair.prototype.valIsArray = function(){
-    return $.isArray(this.val);
-  };
-
-  Pair.prototype.isExpandable = function(){
-    return this.valIsPlainObject() || this.valIsArray();
-  };
-
   Pair.prototype.getKeyMarkup = function(){
     return '<span class="key">' + this.key + '</span>';
   };
 
   Pair.prototype.getValType = function(){
-    var valType;
-    if (this.valIsPlainObject()){
-      valType = 'object';
-    } else if (this.valIsArray()){
-      valType = 'array';
-    } else {
-      valType = typeof this.val;
-    }
-    return valType;
+    return typeof this.val;
   };
 
   Pair.prototype.getValInnerMarkup = function(){
-    var valStr = JSON.stringify(this.val),
-      valMarkup;
+    return JSON.stringify(this.val);
+  };
 
-    if (this.isExpandable()){
-      // truncate the array/object preview
-      var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
-      valMarkup = valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
-    } else {
-      valMarkup = valStr;
-    }
-
-    return valMarkup;
+  Pair.prototype.createTagInnerMarkup = function(){
+    return this.getKeyMarkup() + ': <span class="val ' + this.getValType() + '">' + this.getValInnerMarkup() + '</span>';
   };
 
   Pair.prototype.createTag = function(){
-    var $li = $('<li>'),
-      val = this.val,
-      valStr = JSON.stringify(val),
-      $rowContainer;
-
-    if (this.isExpandable()){
-      // nested data
-      var $expandable = $('<a class="expandable" href="#">');
-      $expandable.data('obj', val);
-      $li.append($expandable);
-      $rowContainer = $expandable;
-    } else {
-      // normal key-value
-      $rowContainer = $li;
-    }
-
-    $rowContainer.append(this.getKeyMarkup() + ': <span class="val ' + this.getValType() + '">' + this.getValInnerMarkup() + '</span>');
-    return $li;
+    return $('<li>' + this.createTagInnerMarkup() + '</li>');
   };
 
   Pair.prototype.render = function(){
     var $li = this.createTag();
     this.$el = $li;
   };
+
+
+
+  var ExpandablePair = function(key, val){
+    Pair.call(this, key, val);
+  };
+
+  $.extend(ExpandablePair.prototype, Pair.prototype);
+
+  ExpandablePair.prototype.getValType = function(){
+    return $.isArray(this.val) ? 'array' : 'object';
+  };
+
+  ExpandablePair.prototype.getValInnerMarkup = function(){
+    var valStr = Pair.prototype.getValInnerMarkup.call(this);
+    // truncate the array/object preview
+    var valMatch = valStr.match(/^([\{\[])(.*)([\}\]])$/);
+    return valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
+  };
+
+  ExpandablePair.prototype.createTag = function(){
+    var $li = $('<li>'),
+      $expandable = $('<a class="expandable" href="#">');
+
+    $expandable.data('obj', this.val);
+    $li.append($expandable);
+
+    $expandable.append(this.createTagInnerMarkup());
+    return $li;
+  };
+
+
+  // factory
+  Pair.create = function(key, val){
+    var pair;
+    if (typeof val === 'object'){
+      pair = new ExpandablePair(key, val);
+    } else {
+      pair = new Pair(key, val);
+    }
+    return pair;
+  };
+
 
 
   var Panel = function(data){
@@ -104,7 +103,7 @@
 
   // private
   Panel.prototype.createListItem = function(key, val){
-    var pair = new Pair(key, val);
+    var pair = Pair.create(key, val);
     pair.render();
     return pair.$el;
   };
