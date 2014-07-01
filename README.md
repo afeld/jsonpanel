@@ -4,11 +4,42 @@ JavaScript JSON viewer plugin.  Requires jQuery.
 
 ## Usage
 
-TODO
+1. Download [the latest release](https://github.com/afeld/jsonpanel/releases), or install using [Bower](http://bower.io):
+
+    ```bash
+    bower install --save jsonpanel
+    ```
+
+1. Include in page
+
+    ```html
+    <link rel="stylesheet" type="text/css" href="bower_components/jsonpanel/stylesheets/jsonpanel.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/Autolinker.js/dist/Autolinker.js"></script>
+    <script src="bower_components/jsonpanel/jsonpanel.js"></script>
+
+    <!-- ... -->
+
+    <div class="jsonpanel"></div>
+    ```
+
+1. Initialize by passing JSON object into jQuery plugin:
+
+    ```javascript
+    $(document).ready(function(){
+      $('.jsonpanel').jsonpanel({
+        data: {
+          sample: 'json'
+        }
+      });
+    });
+    ```
+
+See [the demo page](index.html) for a bigger example.
 
 ## Development
 
-### Setup
+### Installation
 
 ```bash
 gem install bundler
