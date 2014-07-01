@@ -3,7 +3,7 @@ $(function(){
 
   QUnit.test("returns a Panel instance", function(assert){
     var panel = $fixture.jsonpanel({});
-    assert.equal(typeof panel.render, 'function');
+    assert.strictEqual(typeof panel.render, 'function');
   });
 
   QUnit.test("starts off collapsed", function(assert){
@@ -12,16 +12,16 @@ $(function(){
         foo: 'bar'
       }
     });
-    assert.equal($fixture.find('li.expanded').length, 0);
+    assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 
-  QUnit.test("expands when clicked", function(assert){
+  QUnit.test("adds a .expanded class when clicked", function(assert){
     var panel = $fixture.jsonpanel({
       obj: {
         foo: 'bar'
       }
     });
     $fixture.find('.expandable').click();
-    assert.equal($fixture.find('li.expanded').length, 1);
+    assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 });
