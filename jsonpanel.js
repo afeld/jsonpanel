@@ -13,8 +13,7 @@
   };
 
   Pair.prototype.getValInnerMarkup = function(){
-    var markup = JSON.stringify(this.val);
-    return Autolinker.link(markup);
+    return JSON.stringify(this.val);
   };
 
   Pair.prototype.createTagInnerMarkup = function(){
@@ -30,6 +29,17 @@
     this.$el = $li;
   };
 
+
+  var SimplePair = function(key, val){
+    Pair.call(this, key, val);
+  };
+
+  $.extend(SimplePair.prototype, Pair.prototype);
+
+  SimplePair.prototype.getValInnerMarkup = function(){
+    var valStr = Pair.prototype.getValInnerMarkup.call(this);
+    return Autolinker.link(valStr, {stripPrefix: false, truncate: 100});
+  };
 
 
   var ExpandablePair = function(key, val){
@@ -95,7 +105,7 @@
     if (typeof val === 'object'){
       return new ExpandablePair(key, val);
     } else {
-      return new Pair(key, val);
+      return new SimplePair(key, val);
     }
   };
 

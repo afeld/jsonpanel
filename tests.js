@@ -86,6 +86,6 @@ $(function(){
         foo: 'https://google.com'
       }
     });
-    assert.strictEqual($fixture.find('.val.string').html(), '"<a href="https://google.com" target="_blank">google.com</a>"');
+    assert.strictEqual($fixture.find('.val.string').html(), '"<a href="https://google.com" target="_blank">https://google.com</a>"');
   });
 });
