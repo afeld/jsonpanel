@@ -35,7 +35,7 @@ JavaScript JSON viewer plugin.  Requires jQuery.
     });
     ```
 
-See [the demo page](index.html) for a bigger example.
+See [the demo page](http://afeld.github.io/jsonpanel/), or [api.afeld.me](http://api.afeld.me) for a real-world example.
 
 ## Development
 
