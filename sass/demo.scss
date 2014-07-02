@@ -1,5 +1,12 @@
 body {
+  font-family: sans-serif;
   font-size: 16px;
+}
+
+.jsonpanel {
+  border: 4px dashed #C6E746;
+  border-radius: 10px;
+  margin: 35px 0 85px;
 }
 
 @import "./jsonpanel";
