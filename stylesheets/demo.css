@@ -1,0 +1,159 @@
+/* line 1, ../sass/demo.scss */
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+/* line 6, ../sass/demo.scss */
+.jsonpanel {
+  border: 4px dashed #C6E746;
+  border-radius: 10px;
+  margin: 35px 0 85px;
+}
+
+/* line 7, ../sass/jsonpanel.scss */
+.jsonpanel {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  white-space: nowrap;
+  font-family: monospace;
+  padding: 1em;
+  line-height: 1.4;
+}
+/* line 15, ../sass/jsonpanel.scss */
+.jsonpanel * {
+  margin: 0;
+  padding: 0;
+}
+/* line 21, ../sass/jsonpanel.scss */
+.jsonpanel .panel {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 26, ../sass/jsonpanel.scss */
+.jsonpanel .list {
+  list-style-type: none;
+  padding: 0.5em 0;
+}
+/* line 32, ../sass/jsonpanel.scss */
+.jsonpanel ul:before {
+  content: '{';
+}
+/* line 35, ../sass/jsonpanel.scss */
+.jsonpanel ul:after {
+  content: '}';
+}
+/* line 41, ../sass/jsonpanel.scss */
+.jsonpanel ol:before {
+  content: '[';
+}
+/* line 44, ../sass/jsonpanel.scss */
+.jsonpanel ol:after {
+  content: ']';
+}
+/* line 49, ../sass/jsonpanel.scss */
+.jsonpanel .key {
+  margin-left: 1em;
+  font-weight: bold;
+}
+/* line 56, ../sass/jsonpanel.scss */
+.jsonpanel li .val:after {
+  content: ",";
+}
+/* line 59, ../sass/jsonpanel.scss */
+.jsonpanel li:last-child .val:after {
+  display: none;
+}
+/* line 65, ../sass/jsonpanel.scss */
+.jsonpanel .val-inner {
+  display: inline-block;
+  max-width: 28em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+/* line 73, ../sass/jsonpanel.scss */
+.jsonpanel .expandable {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: rgba(211, 223, 240, 0);
+  -moz-transition: background-color 0.3s ease 0.5;
+  -o-transition: background-color 0.3s ease 0.5;
+  -webkit-transition: background-color 0.3s ease;
+  -webkit-transition-delay: 0.5;
+  transition: background-color 0.3s ease 0.5;
+}
+/* line 82, ../sass/jsonpanel.scss */
+.jsonpanel .expandable:hover {
+  background-color: #d3dff0;
+  background-color: #d3dff0;
+}
+/* line 89, ../sass/jsonpanel.scss */
+.jsonpanel .expandable .key:before {
+  content: "+";
+  margin-right: 0.5em;
+}
+/* line 95, ../sass/jsonpanel.scss */
+.jsonpanel .expanded {
+  position: relative;
+}
+/* line 100, ../sass/jsonpanel.scss */
+.jsonpanel .expanded > .expandable .key:before {
+  content: "-";
+}
+/* line 104, ../sass/jsonpanel.scss */
+.jsonpanel .expanded > .expandable .val {
+  opacity: 0;
+}
+/* line 110, ../sass/jsonpanel.scss */
+.jsonpanel .expanded > .panel {
+  margin-left: 2em;
+}
+/* line 115, ../sass/jsonpanel.scss */
+.jsonpanel .boolean {
+  color: red;
+}
+/* line 118, ../sass/jsonpanel.scss */
+.jsonpanel .string {
+  color: green;
+}
+/* line 121, ../sass/jsonpanel.scss */
+.jsonpanel .number {
+  color: blue;
+}
+/* line 126, ../sass/jsonpanel.scss */
+.jsonpanel .array .val-inner,
+.jsonpanel .object .val-inner {
+  color: #a5a5a5;
+}
+
+/* line 14, ../sass/demo.scss */
+.meta-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  position: fixed;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+/* line 23, ../sass/demo.scss */
+.meta-links a {
+  color: black;
+  display: block;
+  font-family: sans-serif;
+  font-size: 0.7em;
+  line-height: 1.3;
+  opacity: 0.6;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+/* line 33, ../sass/demo.scss */
+.meta-links a:hover {
+  opacity: 1;
+}

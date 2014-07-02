@@ -44,8 +44,6 @@ See [the demo page](index.html) for a bigger example.
 ```bash
 gem install bundler
 bundle
-npm install -g bower
-bower install
 ```
 
 ### Compile files
