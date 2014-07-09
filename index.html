@@ -11,8 +11,8 @@
     <script src="jsonpanel.js" data-cover></script>
     <script src="tests.js"></script>
     <script>
-      // don't show example if checking for code coverage in the tests
-      if (!location.search.match(/coverage=true/)){
+      // don't show example if checking for code coverage, running specific test, etc.
+      if (location.search.match(/\A\??\z/)){
         $(document).on('ready', function(){
 
           $('.jsonpanel').jsonpanel({
