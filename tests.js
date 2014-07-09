@@ -33,6 +33,18 @@ $(function(){
     assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 
+  QUnit.test("can handle null", function(assert){
+    var panel = $fixture.jsonpanel({
+      data: {
+        obj: {
+          foo: null
+        }
+      }
+    });
+    $fixture.find('.expandable').click();
+    assert.strictEqual($fixture.find('li.expanded').length, 1);
+  });
+
   QUnit.test("removes .expanded class when collapsed", function(assert){
     var panel = $fixture.jsonpanel({
       data: {

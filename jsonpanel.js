@@ -102,7 +102,7 @@
 
   // factory
   Pair.create = function(key, val){
-    if (typeof val === 'object'){
+    if ($.isPlainObject(val) || $.isArray(val)){
       return new ExpandablePair(key, val);
     } else {
       return new SimplePair(key, val);
