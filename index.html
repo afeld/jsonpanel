@@ -12,7 +12,7 @@
     <script src="tests.js"></script>
     <script>
       // don't show example if checking for code coverage, running specific test, etc.
-      if (location.search.match(/\A\??\z/)){
+      if (location.search.match(/^\??$/)){
         $(document).on('ready', function(){
 
           $('.jsonpanel').jsonpanel({
