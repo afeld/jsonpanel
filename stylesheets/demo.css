@@ -2,9 +2,10 @@
 body {
   font-family: sans-serif;
   font-size: 16px;
+  padding: 15px 30px;
 }
 
-/* line 6, ../sass/demo.scss */
+/* line 7, ../sass/demo.scss */
 .jsonpanel {
   border: 4px dashed #C6E746;
   border-radius: 10px;
@@ -130,7 +131,7 @@ body {
   color: #a5a5a5;
 }
 
-/* line 14, ../sass/demo.scss */
+/* line 15, ../sass/demo.scss */
 .meta-links {
   list-style-type: none;
   margin: 0;
@@ -140,7 +141,7 @@ body {
   text-align: right;
   top: 0;
 }
-/* line 23, ../sass/demo.scss */
+/* line 24, ../sass/demo.scss */
 .meta-links a {
   color: black;
   display: block;
@@ -153,7 +154,7 @@ body {
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
 }
-/* line 33, ../sass/demo.scss */
+/* line 34, ../sass/demo.scss */
 .meta-links a:hover {
   opacity: 1;
 }
