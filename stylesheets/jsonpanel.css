@@ -69,7 +69,7 @@
   vertical-align: top;
 }
 /* line 80, ../sass/jsonpanel.scss */
-.jsonpanel .expandable {
+.jsonpanel .expander {
   display: block;
   text-decoration: none;
   color: black;
@@ -81,12 +81,12 @@
   transition: background-color 0.3s ease 0.5;
 }
 /* line 89, ../sass/jsonpanel.scss */
-.jsonpanel .expandable:hover {
+.jsonpanel .expander:hover {
   background-color: #d3dff0;
   background-color: #d3dff0;
 }
 /* line 96, ../sass/jsonpanel.scss */
-.jsonpanel .expandable .key:before {
+.jsonpanel .expander .key:before {
   content: "+";
   margin-right: 0.5em;
 }
@@ -95,11 +95,11 @@
   position: relative;
 }
 /* line 107, ../sass/jsonpanel.scss */
-.jsonpanel .expanded > .expandable .key:before {
+.jsonpanel .expanded > .expander .key:before {
   content: "-";
 }
 /* line 111, ../sass/jsonpanel.scss */
-.jsonpanel .expanded > .expandable .val {
+.jsonpanel .expanded > .expander .val {
   opacity: 0;
 }
 /* line 117, ../sass/jsonpanel.scss */

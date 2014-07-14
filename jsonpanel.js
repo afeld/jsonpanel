@@ -61,12 +61,12 @@
 
   ExpandablePair.prototype.createTag = function(){
     var $li = $('<li>'),
-      $expandable = $('<a class="expandable" href="#">');
+      $expander = $('<a class="expander" href="#">');
 
-    $expandable.on('click', $.proxy(this.onKeyClick, this));
-    $li.append($expandable);
+    $expander.on('click', $.proxy(this.onKeyClick, this));
+    $li.append($expander);
 
-    $expandable.append(this.createTagInnerMarkup());
+    $expander.append(this.createTagInnerMarkup());
     return $li;
   };
 

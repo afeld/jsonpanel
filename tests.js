@@ -29,7 +29,7 @@ $(function(){
         }
       }
     });
-    $fixture.find('.expandable').click();
+    $fixture.find('.expander').click();
     assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 
@@ -41,7 +41,7 @@ $(function(){
         }
       }
     });
-    $fixture.find('.expandable').click();
+    $fixture.find('.expander').click();
     assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 
@@ -53,7 +53,7 @@ $(function(){
         }
       }
     });
-    $fixture.find('.expandable').click().click();
+    $fixture.find('.expander').click().click();
     assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 
@@ -75,7 +75,7 @@ $(function(){
         ary: ['foo']
       }
     });
-    $fixture.find('.expandable').click();
+    $fixture.find('.expander').click();
     assert.strictEqual($fixture.find('li.expanded').length, 1);
   });
 
@@ -85,7 +85,7 @@ $(function(){
         ary: ['foo']
       }
     });
-    $fixture.find('.expandable').click().click();
+    $fixture.find('.expander').click().click();
     assert.strictEqual($fixture.find('li.expanded').length, 0);
   });
 
