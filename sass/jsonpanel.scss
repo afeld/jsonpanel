@@ -51,7 +51,15 @@
     font-weight: bold;
   }
 
-  li {
+  .pair {
+    &.simple {
+      $hangingIndent: 30px;
+      max-width: 600px;
+      padding-left: $hangingIndent;
+      text-indent: -1 * $hangingIndent;
+      white-space: normal;
+    }
+
     // commas after every non-nested link item
     .val:after {
       content: ",";
@@ -59,13 +67,6 @@
     &:last-child .val:after {
       display: none;
     }
-  }
-  .pair.simple {
-    $hangingIndent: 30px;
-    max-width: 600px;
-    padding-left: $hangingIndent;
-    text-indent: -1 * $hangingIndent;
-    white-space: normal;
   }
 
   // only applies in collapsed state

@@ -59,22 +59,22 @@ body {
   margin-left: 1em;
   font-weight: bold;
 }
-/* line 56, ../sass/jsonpanel.scss */
-.jsonpanel li .val:after {
-  content: ",";
-}
-/* line 59, ../sass/jsonpanel.scss */
-.jsonpanel li:last-child .val:after {
-  display: none;
-}
-/* line 63, ../sass/jsonpanel.scss */
+/* line 55, ../sass/jsonpanel.scss */
 .jsonpanel .pair.simple {
   max-width: 600px;
   padding-left: 30px;
   text-indent: -30px;
   white-space: normal;
 }
-/* line 72, ../sass/jsonpanel.scss */
+/* line 64, ../sass/jsonpanel.scss */
+.jsonpanel .pair .val:after {
+  content: ",";
+}
+/* line 67, ../sass/jsonpanel.scss */
+.jsonpanel .pair:last-child .val:after {
+  display: none;
+}
+/* line 73, ../sass/jsonpanel.scss */
 .jsonpanel .val-inner {
   display: inline-block;
   max-width: 28em;
@@ -82,7 +82,7 @@ body {
   text-overflow: ellipsis;
   vertical-align: top;
 }
-/* line 80, ../sass/jsonpanel.scss */
+/* line 81, ../sass/jsonpanel.scss */
 .jsonpanel .expander {
   display: block;
   text-decoration: none;
@@ -94,45 +94,45 @@ body {
   -webkit-transition-delay: 0.5;
   transition: background-color 0.3s ease 0.5;
 }
-/* line 89, ../sass/jsonpanel.scss */
+/* line 90, ../sass/jsonpanel.scss */
 .jsonpanel .expander:hover {
   background-color: #d3dff0;
   background-color: #d3dff0;
 }
-/* line 96, ../sass/jsonpanel.scss */
+/* line 97, ../sass/jsonpanel.scss */
 .jsonpanel .expander .key:before {
   content: "+";
   margin-right: 0.5em;
 }
-/* line 102, ../sass/jsonpanel.scss */
+/* line 103, ../sass/jsonpanel.scss */
 .jsonpanel .expanded {
   position: relative;
 }
-/* line 107, ../sass/jsonpanel.scss */
+/* line 108, ../sass/jsonpanel.scss */
 .jsonpanel .expanded > .expander .key:before {
   content: "-";
 }
-/* line 111, ../sass/jsonpanel.scss */
+/* line 112, ../sass/jsonpanel.scss */
 .jsonpanel .expanded > .expander .val {
   opacity: 0;
 }
-/* line 117, ../sass/jsonpanel.scss */
+/* line 118, ../sass/jsonpanel.scss */
 .jsonpanel .expanded > .panel {
   margin-left: 2em;
 }
-/* line 122, ../sass/jsonpanel.scss */
+/* line 123, ../sass/jsonpanel.scss */
 .jsonpanel .boolean {
   color: red;
 }
-/* line 125, ../sass/jsonpanel.scss */
+/* line 126, ../sass/jsonpanel.scss */
 .jsonpanel .string {
   color: green;
 }
-/* line 128, ../sass/jsonpanel.scss */
+/* line 129, ../sass/jsonpanel.scss */
 .jsonpanel .number {
   color: blue;
 }
-/* line 133, ../sass/jsonpanel.scss */
+/* line 134, ../sass/jsonpanel.scss */
 .jsonpanel .array .val-inner,
 .jsonpanel .object .val-inner {
   color: #a5a5a5;
