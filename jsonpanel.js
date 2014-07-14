@@ -62,7 +62,7 @@
     return $.isArray(this.val) ? 'array' : 'object';
   };
 
-  SimplePair.prototype.getClass = function(){
+  ExpandablePair.prototype.getClass = function(){
     return Pair.prototype.getClass.call(this) + ' expandable';
   };
 
