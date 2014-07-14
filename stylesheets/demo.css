@@ -68,7 +68,7 @@ body {
   display: none;
 }
 /* line 63, ../sass/jsonpanel.scss */
-.jsonpanel .pair {
+.jsonpanel .expandable {
   max-width: 600px;
   padding-left: 30px;
   text-indent: -30px;

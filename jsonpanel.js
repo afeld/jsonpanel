@@ -20,8 +20,14 @@
     return this.getKeyMarkup() + ': <span class="val ' + this.getValType() + '">' + this.getValInnerMarkup() + '</span>';
   };
 
+  Pair.prototype.getClass = function(){
+    return 'pair';
+  };
+
   Pair.prototype.createTag = function(){
-    return $('<li class="pair">' + this.createTagInnerMarkup() + '</li>');
+    var $li = $('<li class="' + this.getClass() + '">');
+    $li.html(this.createTagInnerMarkup());
+    return $li;
   };
 
   Pair.prototype.render = function(){
@@ -35,6 +41,10 @@
   };
 
   $.extend(SimplePair.prototype, Pair.prototype);
+
+  SimplePair.prototype.getClass = function(){
+    return Pair.prototype.getClass.call(this) + ' simple';
+  };
 
   SimplePair.prototype.getValInnerMarkup = function(){
     var valStr = Pair.prototype.getValInnerMarkup.call(this);
@@ -52,6 +62,10 @@
     return $.isArray(this.val) ? 'array' : 'object';
   };
 
+  SimplePair.prototype.getClass = function(){
+    return Pair.prototype.getClass.call(this) + ' expandable';
+  };
+
   ExpandablePair.prototype.getValInnerMarkup = function(){
     var valStr = Pair.prototype.getValInnerMarkup.call(this);
     // truncate the array/object preview
@@ -59,15 +73,13 @@
     return valMatch[1] + '<span class="val-inner">' + valMatch[2] + '</span>' + valMatch[3];
   };
 
-  ExpandablePair.prototype.createTag = function(){
-    var $li = $('<li>'),
-      $expander = $('<a class="expander" href="#">');
-
+  ExpandablePair.prototype.createTagInnerMarkup = function(){
+    var $expander = $('<a class="expander" href="#">');
     $expander.on('click', $.proxy(this.onKeyClick, this));
-    $li.append($expander);
 
-    $expander.append(this.createTagInnerMarkup());
-    return $li;
+    var innerMarkup = Pair.prototype.createTagInnerMarkup.call(this);
+    $expander.append(innerMarkup);
+    return $expander;
   };
 
   ExpandablePair.prototype.isExpanded = function(){
