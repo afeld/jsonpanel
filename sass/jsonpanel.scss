@@ -51,7 +51,15 @@
     font-weight: bold;
   }
 
-  li {
+  .pair {
+    &.simple {
+      $hangingIndent: 30px;
+      max-width: 600px;
+      padding-left: $hangingIndent;
+      text-indent: -1 * $hangingIndent;
+      white-space: normal;
+    }
+
     // commas after every non-nested link item
     .val:after {
       content: ",";
@@ -70,7 +78,7 @@
     vertical-align: top;
   }
 
-  .expandable {
+  .expander {
     display: block;
     text-decoration: none;
     color: black;
@@ -95,7 +103,7 @@
   .expanded {
     position: relative;
 
-    & > .expandable {
+    & > .expander {
       // collapser
       .key:before {
         content: "-";
