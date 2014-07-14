@@ -21,7 +21,7 @@
   };
 
   Pair.prototype.createTag = function(){
-    return $('<li>' + this.createTagInnerMarkup() + '</li>');
+    return $('<li class="pair">' + this.createTagInnerMarkup() + '</li>');
   };
 
   Pair.prototype.render = function(){
