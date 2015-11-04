@@ -1,6 +1,6 @@
 # JSONPanel
 
-JavaScript JSON viewer plugin.  Requires jQuery.
+JavaScript JSON viewer plugin. Requires jQuery.
 
 ## Usage
 
